@@ -8,8 +8,8 @@ namespace CartService.BLL.Mappings
     {
         public AppMappingProfile()
         {
-            CreateMap<ImageInfo, ImageInfoDto>().ReverseMap();
-            CreateMap<Cart, CartDto>().ReverseMap();
+            CreateMap<ImageInfo, ImageInfoViewModel>().ReverseMap();
+            CreateMap<Cart, CartViewModel>().ReverseMap();
         }
     }
 }

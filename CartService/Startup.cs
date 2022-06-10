@@ -1,9 +1,12 @@
+using CartService.BLL.Entities;
 using CartService.BLL.Mappings;
 using CartService.BLL.Services;
 using CartService.DAL.Interfaces;
 using CartService.DAL.LiteDb.DbContext;
 using CartService.DAL.LiteDb.Providers;
 using CartService.DAL.LiteDb.Repositories;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +27,12 @@ namespace CartService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc().AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblyContaining<CartViewModelValidator>();
+                options.RegisterValidatorsFromAssemblyContaining<ImageInfoViewModelValidator>();
+            });
+
             services.AddScoped<ILiteDbSettingsProvider, LiteDbSettingsProvider>();
             services.AddScoped<ILiteDBContext, LiteDBContext>();
             services.AddScoped<ICartRepository, CartRepository>();

@@ -22,13 +22,13 @@ namespace CartService.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<CartDto> GetAll()
+        public IEnumerable<CartViewModel> GetAll()
         {
-            return _cartService.GetList().Select(x => _mapper.Map<CartDto>(x));
+            return _cartService.GetList().Select(x => _mapper.Map<CartViewModel>(x));
         }
 
         [HttpPost]
-        public int Add(CartDto cartDto)
+        public int Add(CartViewModel cartDto)
         {
             return _cartService.Add(_mapper.Map<Cart>(cartDto));
         }

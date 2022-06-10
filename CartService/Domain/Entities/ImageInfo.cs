@@ -11,10 +11,6 @@ namespace CartService.Domain.Entities
 
         public ImageInfo(string url, string altText)
         {
-            if (string.IsNullOrEmpty(url)) {
-                throw new ArgumentException("Can not be null or empty", nameof(url));
-            }
-
             Url = url;
             AltText = altText;
         }

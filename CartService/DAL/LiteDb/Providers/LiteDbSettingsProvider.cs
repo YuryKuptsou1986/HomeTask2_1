@@ -29,7 +29,6 @@ namespace CartService.DAL.LiteDb.Providers
             if (Directory.Exists(DbPath)) {
                 throw new ArgumentException("Path should be valid", nameof(DbPath));
             }
-
         }
     }
 }
