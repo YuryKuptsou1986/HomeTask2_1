@@ -1,8 +1,10 @@
-﻿namespace CartService.BLL.Entities
+﻿using System;
+
+namespace CartService.BLL.Entities
 {
     public class ImageInfoViewModel
     {
-        public string Url { get; set; }
+        public Uri Url { get; set; }
         public string AltText { get; set; }
     }
 }

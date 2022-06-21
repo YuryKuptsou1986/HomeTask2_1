@@ -6,10 +6,10 @@ namespace CartService.Domain.Entities
 {
     public class ImageInfo : ValueObject
     {
-        public string Url { get; }
+        public Uri Url { get; }
         public string AltText { get; }
 
-        public ImageInfo(string url, string altText)
+        public ImageInfo(Uri url, string altText)
         {
             Url = url;
             AltText = altText;
